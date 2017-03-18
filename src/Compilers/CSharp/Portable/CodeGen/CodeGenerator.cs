@@ -18,6 +18,8 @@ using Roslyn.Utilities;
 
 namespace Microsoft.CodeAnalysis.CSharp.CodeGen
 {
+    using ILOpCode = CodeAnalysis.CodeGen.ILOpCode;
+
     internal sealed partial class CodeGenerator
     {
         private readonly MethodSymbol _method;

@@ -13,6 +13,8 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.CodeGen
 {
+    using ILOpCode = CodeAnalysis.CodeGen.ILOpCode;
+
     internal partial class CodeGenerator
     {
         private enum ArrayInitializerStyle

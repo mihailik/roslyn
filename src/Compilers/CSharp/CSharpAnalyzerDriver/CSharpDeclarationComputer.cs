@@ -11,6 +11,8 @@ using Roslyn.Utilities;
 
 namespace Microsoft.CodeAnalysis.CSharp
 {
+    using ILOpCode = CodeAnalysis.CodeGen.ILOpCode;
+
     internal class CSharpDeclarationComputer : DeclarationComputer
     {
         public static void ComputeDeclarationsInSpan(SemanticModel model, TextSpan span, bool getSymbol, List<DeclarationInfo> builder, CancellationToken cancellationToken)

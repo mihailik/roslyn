@@ -73,6 +73,8 @@ namespace Microsoft.CodeAnalysis
             {
                 var name = $"{typeof(CommonCompiler).GetTypeInfo().Assembly.GetName().Name}.dll";
                 var filePath = Path.Combine(_clientDirectory, name);
+                if (!File.Exists(filePath))
+                    filePath = Path.ChangeExtension(filePath, ".exe");
                 return PortableShim.Misc.GetFileVersion(filePath);
             }
 

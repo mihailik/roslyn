@@ -11,6 +11,8 @@ using Roslyn.Utilities;
 
 namespace Microsoft.CodeAnalysis.CSharp.CodeGen
 {
+    using ILOpCode = CodeAnalysis.CodeGen.ILOpCode;
+
     internal partial class CodeGenerator
     {
         private int _recursionDepth;
