@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;COMPILERCORE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;COMPILERCORE;SCRIPTING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -735,7 +735,68 @@
     <Compile Include="Compilers\Core\Portable\XmlFileResolver.cs" />
     <Compile Include="Compilers\Core\Portable\Xml\XmlCharType.cs" />
     <Compile Include="Compilers\Shared\ExitingTraceListener.cs" />
+    <Compile Include="Compilers\Shared\GlobalAssemblyCacheHelpers\ClrGlobalAssemblyCache.cs" />
+    <Compile Include="Compilers\Shared\GlobalAssemblyCacheHelpers\FusionAssemblyIdentity.cs" />
+    <Compile Include="Compilers\Shared\GlobalAssemblyCacheHelpers\GacFileResolver.cs" />
+    <Compile Include="Compilers\Shared\GlobalAssemblyCacheHelpers\GlobalAssemblyCache.cs" />
+    <Compile Include="Compilers\Shared\GlobalAssemblyCacheHelpers\GlobalAssemblyCacheLocation.cs" />
+    <Compile Include="Compilers\Shared\GlobalAssemblyCacheHelpers\MonoGlobalAssemblyCache.cs" />
     <Compile Include="Compilers\Shared\SimpleAnalyzerAssemblyLoader.cs" />
+    <Compile Include="Scripting\Core\CompilationErrorException.cs" />
+    <Compile Include="Scripting\Core\Hosting\AssemblyLoader\AssemblyAndLocation.cs" />
+    <Compile Include="Scripting\Core\Hosting\AssemblyLoader\AssemblyLoaderImpl.cs" />
+    <Compile Include="Scripting\Core\Hosting\AssemblyLoader\AssemblyLoadResult.cs" />
+    <Compile Include="Scripting\Core\Hosting\AssemblyLoader\DesktopAssemblyLoaderImpl.cs" />
+    <Compile Include="Scripting\Core\Hosting\AssemblyLoader\InteractiveAssemblyLoader.cs" />
+    <Compile Include="Scripting\Core\Hosting\AssemblyLoader\InteractiveAssemblyLoaderException.cs" />
+    <Compile Include="Scripting\Core\Hosting\AssemblyLoader\MetadataShadowCopy.cs" />
+    <Compile Include="Scripting\Core\Hosting\AssemblyLoader\MetadataShadowCopyProvider.cs" />
+    <Compile Include="Scripting\Core\Hosting\AssemblyLoader\ShadowCopy.cs" />
+    <Compile Include="Scripting\Core\Hosting\CommandLine\CommandLineHelpers.cs" />
+    <Compile Include="Scripting\Core\Hosting\CommandLine\CommandLineRunner.cs" />
+    <Compile Include="Scripting\Core\Hosting\CommandLine\CommandLineScriptGlobals.cs" />
+    <Compile Include="Scripting\Core\Hosting\CommandLine\ConsoleIO.cs" />
+    <Compile Include="Scripting\Core\Hosting\CommandLine\NotImplementedAnalyzerLoader.cs" />
+    <Compile Include="Scripting\Core\Hosting\CommonMemberFilter.cs" />
+    <Compile Include="Scripting\Core\Hosting\InteractiveScriptGlobals.cs" />
+    <Compile Include="Scripting\Core\Hosting\MemberFilter.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\CommonObjectFormatter.Builder.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\CommonObjectFormatter.BuilderOptions.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\CommonObjectFormatter.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\CommonObjectFormatter.Visitor.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\CommonObjectFormatter.Visitor.FormattedMember.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\CommonPrimitiveFormatter.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\CommonPrimitiveFormatterOptions.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\CommonTypeNameFormatter.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\CommonTypeNameFormatterOptions.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\MemberDisplayFormat.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\ObjectFormatter.cs" />
+    <Compile Include="Scripting\Core\Hosting\ObjectFormatter\ObjectFormatterHelpers.cs" />
+    <Compile Include="Scripting\Core\Hosting\PrintOptions.cs" />
+    <Compile Include="Scripting\Core\Hosting\Resolvers\NuGetPackageResolver.cs" />
+    <Compile Include="Scripting\Core\Hosting\Resolvers\RuntimeMetadataReferenceResolver.cs" />
+    <Compile Include="Scripting\Core\Hosting\SearchPaths.cs" />
+    <Compile Include="Scripting\Core\Hosting\SynchronizedList.cs" />
+    <Compile Include="Scripting\Core\MetadataFileReferenceResolver.cs" />
+    <Compile Include="Scripting\Core\Script.cs" />
+    <Compile Include="Scripting\Core\ScriptBuilder.cs" />
+    <Compile Include="Scripting\Core\ScriptCompiler.cs" />
+    <Compile Include="Scripting\Core\ScriptExecutionState.cs" />
+    <Compile Include="Scripting\Core\ScriptingResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScriptingResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Scripting\Core\ScriptMetadataResolver.cs" />
+    <Compile Include="Scripting\Core\ScriptOptions.cs" />
+    <Compile Include="Scripting\Core\ScriptRunner.cs" />
+    <Compile Include="Scripting\Core\ScriptSourceResolver.cs" />
+    <Compile Include="Scripting\Core\ScriptState.cs" />
+    <Compile Include="Scripting\Core\ScriptVariable.cs" />
+    <Compile Include="Scripting\Core\Utilities\ConsoleShims.cs" />
+    <Compile Include="Scripting\Core\Utilities\IListExtensions.cs" />
+    <Compile Include="Scripting\Core\Utilities\ParameterValidationHelpers.cs" />
+    <Compile Include="Scripting\Core\Utilities\TaskExtensions.cs" />
     <EmbeddedResource Include="Compilers\Core\Portable\CodeAnalysisResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -745,6 +806,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compilers\Core\Portable\Resources\default.win32manifest">
       <LogicalName>Microsoft.CodeAnalysis.Resources.default.win32manifest</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scripting\Core\ScriptingResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScriptingResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Microsoft.CodeAnalysis.Scripting</CustomToolNamespace>
     </EmbeddedResource>
     <None Include="..\CodeAnalysisRules.ruleset">
       <SubType>Designer</SubType>

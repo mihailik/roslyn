@@ -13,9 +13,12 @@ namespace Microsoft.CodeAnalysis.Scripting.Hosting
             return args.CompilationOptions.GetImports();
         }
 
+        private static MetadataReference[] _emptyMetadataReferenceArray = new MetadataReference[] { };
+        private static string[] _emptyStringArray = new string[] { };
+
         internal static ScriptOptions RemoveImportsAndReferences(this ScriptOptions options)
         {
-            return options.WithReferences(Array.Empty<MetadataReference>()).WithImports(Array.Empty<string>());
+            return options.WithReferences(_emptyMetadataReferenceArray).WithImports(_emptyStringArray);
         }
     }
 }

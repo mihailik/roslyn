@@ -19,22 +19,22 @@ namespace Microsoft.CodeAnalysis.Scripting.Hosting
 
         public static AssemblyLoaderImpl Create(InteractiveAssemblyLoader loader)
         {
-            if (CoreClrShim.AssemblyLoadContext.Type != null)
-            {
-                return CreateCoreImpl(loader);
-            }
-            else
+            //if (CoreClrShim.AssemblyLoadContext.Type != null)
+            //{
+            //    return CreateCoreImpl(loader);
+            //}
+            //else
             {
                 return new DesktopAssemblyLoaderImpl(loader);
             }
         }
 
-        // NoInlining to avoid loading AssemblyLoadContext if not available.
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private static AssemblyLoaderImpl CreateCoreImpl(InteractiveAssemblyLoader loader)
-        {
-            return new CoreAssemblyLoaderImpl(loader);
-        }
+        //// NoInlining to avoid loading AssemblyLoadContext if not available.
+        //[MethodImpl(MethodImplOptions.NoInlining)]
+        //private static AssemblyLoaderImpl CreateCoreImpl(InteractiveAssemblyLoader loader)
+        //{
+        //    return new CoreAssemblyLoaderImpl(loader);
+        //}
 
         public abstract Assembly LoadFromStream(Stream peStream, Stream pdbStream);
         public abstract AssemblyAndLocation LoadFromPath(string path);

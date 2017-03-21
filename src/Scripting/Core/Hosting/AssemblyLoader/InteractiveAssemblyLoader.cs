@@ -383,6 +383,7 @@ namespace Microsoft.CodeAnalysis.Scripting.Hosting
             }
             catch
             {
+                mvid = default(Guid);
                 return false;
             }
         }
