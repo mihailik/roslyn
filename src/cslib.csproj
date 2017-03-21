@@ -742,6 +742,7 @@
     <Compile Include="Compilers\Shared\GlobalAssemblyCacheHelpers\GlobalAssemblyCacheLocation.cs" />
     <Compile Include="Compilers\Shared\GlobalAssemblyCacheHelpers\MonoGlobalAssemblyCache.cs" />
     <Compile Include="Compilers\Shared\SimpleAnalyzerAssemblyLoader.cs" />
+    <Compile Include="Interactive\CsiCore\Csi.cs" />
     <Compile Include="Scripting\Core\CompilationErrorException.cs" />
     <Compile Include="Scripting\Core\Hosting\AssemblyLoader\AssemblyAndLocation.cs" />
     <Compile Include="Scripting\Core\Hosting\AssemblyLoader\AssemblyLoaderImpl.cs" />

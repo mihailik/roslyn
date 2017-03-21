@@ -17,7 +17,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Scripting.Hosting
         {
             try
             {
-                var responseFile = Path.Combine(AppContext.BaseDirectory, InteractiveResponseFileName);
+                var responseFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, InteractiveResponseFileName);
 
                 var compiler = new CSharpInteractiveCompiler(
                     responseFile: responseFile,

@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft.  All Rights Reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 
 using System.IO;
+using System.Linq;
 using Microsoft.CodeAnalysis.CommandLine;
 using Roslyn.Utilities;
 
@@ -9,7 +10,22 @@ namespace Microsoft.CodeAnalysis.CSharp.CommandLine
     public class Program
     {
         public static int Main(string[] args)
-            => Main(args, SpecializedCollections.EmptyArray<string>());
+        {
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (string.Equals(args[i], "/interactive", System.StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(args[i], "-interactive", System.StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(args[i], "--interactive", System.StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(args[i], "/i", System.StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(args[i], "-i", System.StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(args[i], "--i", System.StringComparison.OrdinalIgnoreCase))
+                {
+                    return Microsoft.CodeAnalysis.CSharp.Scripting.Hosting.Csi.Main(
+                        args.Take(i).Concat(args.Skip(i + 1)).ToArray());
+                }
+            }
+            return Main(args, SpecializedCollections.EmptyArray<string>());
+        }
 
         public static int Main(string[] args, string[] extraArgs)
             => DesktopBuildClient.Run(args, extraArgs, RequestLanguage.CSharpCompile, Csc.Run, new SimpleAnalyzerAssemblyLoader());
