@@ -797,6 +797,19 @@
     <Compile Include="Scripting\Core\Utilities\IListExtensions.cs" />
     <Compile Include="Scripting\Core\Utilities\ParameterValidationHelpers.cs" />
     <Compile Include="Scripting\Core\Utilities\TaskExtensions.cs" />
+    <Compile Include="Scripting\CSharp\CSharpMemberFilter.cs" />
+    <Compile Include="Scripting\CSharp\CSharpScript.cs" />
+    <Compile Include="Scripting\CSharp\CSharpScriptCompiler.cs" />
+    <Compile Include="Scripting\CSharp\CSharpScriptingResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CSharpScriptingResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Scripting\CSharp\Hosting\CommandLine\Csi.cs" />
+    <Compile Include="Scripting\CSharp\Hosting\ObjectFormatter\CSharpObjectFormatter.cs" />
+    <Compile Include="Scripting\CSharp\Hosting\ObjectFormatter\CSharpObjectFormatterImpl.cs" />
+    <Compile Include="Scripting\CSharp\Hosting\ObjectFormatter\CSharpPrimitiveFormatter.cs" />
+    <Compile Include="Scripting\CSharp\Hosting\ObjectFormatter\CSharpTypeNameFormatter.cs" />
     <EmbeddedResource Include="Compilers\Core\Portable\CodeAnalysisResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -811,6 +824,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ScriptingResources.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Microsoft.CodeAnalysis.Scripting</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scripting\CSharp\CSharpScriptingResources.resx">
+      <CustomToolNamespace>Microsoft.CodeAnalysis.CSharp.Scripting</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CSharpScriptingResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="..\CodeAnalysisRules.ruleset">
       <SubType>Designer</SubType>

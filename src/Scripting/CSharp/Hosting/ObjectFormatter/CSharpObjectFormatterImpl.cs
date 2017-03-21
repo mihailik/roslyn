@@ -9,7 +9,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Scripting.Hosting
     {
         protected override CommonTypeNameFormatter TypeNameFormatter { get; }
         protected override CommonPrimitiveFormatter PrimitiveFormatter { get; }
-        protected override MemberFilter Filter { get; }
+        protected override Microsoft.CodeAnalysis.Scripting.Hosting.MemberFilter Filter { get; }
 
         internal CSharpObjectFormatterImpl()
         {

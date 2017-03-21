@@ -10,7 +10,6 @@
 
 namespace Microsoft.CodeAnalysis.CSharp.Scripting {
     using System;
-    using System.Reflection;
     
     
     /// <summary>
@@ -40,7 +39,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Scripting {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Microsoft.CodeAnalysis.CSharp.Scripting.CSharpScriptingResources", typeof(CSharpScriptingResources).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Microsoft.CodeAnalysis.CSharp.Scripting.CSharp.CSharpScriptingResources", typeof(CSharpScriptingResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
